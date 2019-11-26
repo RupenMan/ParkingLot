@@ -1,0 +1,13 @@
+
+  <tr *ngIf="customer_info.receipt_body !== undefined">
+    <td width="200">{{customer_info.customer_id}}</td>
+    <td width="200">{{customer_info.receipt_body.price}}</td>
+    <td width="200">{{customer_info.receipt_body.parking_hours}}</td>
+    <td>
+        <input type="button" value="Delete" (click)="onDelete(customer_info.customer_id)"/>
+    </td>
+    <td>
+        <input type="button" value="Update" (click) = "onUpdate(customer_info)"/>
+    </td>
+    
+  </tr>

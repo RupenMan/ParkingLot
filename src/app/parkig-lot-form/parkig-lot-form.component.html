@@ -1,0 +1,41 @@
+<h1>Parking lot Entry Form</h1>
+
+<form [formGroup] = "parkinglotForm" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>Customer ID:</td>
+      <td><input type="text" formControlName = "customer_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customer_id.errors }"  /></td> 
+      <div *ngIf="f.customer_id.invalid && (f.customer_id.dirty || f.customer_id.touched)">
+        <div *ngIf = "f.customer_id.errors.required">Customer ID is required</div>
+        <div *ngIf = "f.customer_id.errors.minlength">Customer ID must be at least 2 characters.</div>
+      </div>     
+    </tr>
+    <tr>
+      <td>Pass Type</td>
+      <td><select formControlName = "pass_type">
+        <option value = "hourly">Hourly</option>
+        <option value = "monthly">Monthly</option>
+        <option value = "annually">Annually</option>
+      </select></td>    
+    </tr>
+    <tr>
+        <td>Size of Vehicle</td>
+        <td>
+          <select formControlName = "size_of_vehicle">
+            <option value = "small">Small</option>
+            <option value = "medium">Medium</option>
+            <option value = "heavy">Heavy</option>
+          </select>
+        </td>
+      </tr>
+      <div formGroupName = "duration">
+          <tr>
+              <td>Entry Time</td>
+              <td><input type="datetime-local" formControlName = "entry_time"  /></td>  
+    
+            </tr>
+      </div>
+      
+    </table>
+    <input type="submit" value="Submit" />
+</form>

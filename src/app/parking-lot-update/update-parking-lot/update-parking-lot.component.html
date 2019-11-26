@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Parking Lot Update Form</h1>
+<mat-dialog-content>
+  <form [formGroup]="updateFormGroup" (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        <td>Customer ID:</td>
+        <div *ngIf="parkingLot == null">
+          <td><input type="text" formControlName="customer_id"
+              [ngClass]="{'is-invalid':submitted && f.customer_id.errors}" /></td>
+        </div>
+        <div *ngIf="parkingLot != null">
+          <td><input type="text" formControlName="customer_id" [value]="parkingLot.customer_id"
+              [ngClass]="{'is-invalid':submitted && f.customer_id.errors}" /></td>
+        </div>
+
+        <div *ngIf="f.customer_id.invalid && (f.customer_id.dirty || f.customer_id.touched)">
+          <div *ngIf="f.customer_id.errors.required">Customer ID is required</div>
+          <div *ngIf="f.customer_id.errors.minlength"> Customer ID should not be less than 2</div>
+        </div>
+      </tr>
+      <tr>
+        <div formGroupName="duration">
+          <td>Exit Time: </td>
+          <td><input type="datetime-local" formControlName="exit_time" /></td>
+        </div>
+      </tr>
+    </table>
+    <mat-dialog-actions>
+      <input type="submit" value="Update" />
+    </mat-dialog-actions>
+
+  </form>
+</mat-dialog-content>

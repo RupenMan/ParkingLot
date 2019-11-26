@@ -1,0 +1,46 @@
+<h1> Parking Lot Receipt</h1>
+<table>
+    <tr>
+        <td>Customer ID:</td>
+        <td>{{receipt.customer_id}}</td>
+    </tr>
+    <tr>
+        <td>Pass Type:</td>
+        <td>{{receipt.pass_type}}</td>
+    </tr>
+    <tr>
+        <td>Size Of Vehicle:</td>
+        <td>{{receipt.size_of_vehicle}}</td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td><b>Duration</b></td>
+    </tr>
+
+    <tr>
+        <td>Entry Time:</td>
+        <td>{{receipt.duration.entry_time}}</td>
+    </tr>
+
+    <tr>
+        <td>Exit Time:</td>
+        <td>{{receipt.duration.exit_time}}</td>
+    </tr>
+
+    <tr></tr>
+    <tr>
+        <td><b>Invoice</b></td>
+    </tr>
+
+
+    <tr>
+        <td>Parking Hours:</td>
+        <td>{{receipt.receipt_body.parking_hours}}</td>
+    </tr>
+
+    <tr>
+        <td>Payment To Be Made:</td>
+        <td>{{receipt.receipt_body.price}}</td>
+    </tr>
+
+</table>

@@ -1,0 +1,7 @@
+<table border="1">
+  <tbody>
+    <div *ngFor="let customer of customers">
+      <app-customer-info [customer_info]="customer" (sendCustomerId)="onDelete($event)"  (updateCustomerInfo)="onUpdate($event)"></app-customer-info>
+    </div>
+  </tbody>
+</table>
